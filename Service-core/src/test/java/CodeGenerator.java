@@ -19,7 +19,7 @@ public class CodeGenerator {
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath + "/src/main/java");
-        gc.setAuthor("Helen");
+        gc.setAuthor("wangping");
         gc.setOpen(false); //生成后是否打开资源管理器
         gc.setServiceName("%sService");	//去掉Service接口的首字母I
         gc.setIdType(IdType.AUTO); //主键策略
@@ -37,8 +37,8 @@ public class CodeGenerator {
 
         // 4、包配置
         PackageConfig pc = new PackageConfig();
-        pc.setParent("com.atguigu.srb.core");
-        pc.setEntity("pojo.entity"); //此对象与数据库表结构一一对应，通过 DAO 层向上传输数据源对象。
+        pc.setParent("org.wangp.srb");
+        pc.setEntity("pojo"); //此对象与数据库表结构一一对应，通过 DAO 层向上传输数据源对象。
         mpg.setPackageInfo(pc);
 
         // 5、策略配置
