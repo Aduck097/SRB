@@ -2,6 +2,9 @@ package org.wangp.srb.mapper;
 
 import org.wangp.srb.pojo.Dict;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.wangp.srb.pojo.dto.ExcelDictDTO;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface DictMapper extends BaseMapper<Dict> {
 
+    void insertBatch(List<ExcelDictDTO> list);
 }

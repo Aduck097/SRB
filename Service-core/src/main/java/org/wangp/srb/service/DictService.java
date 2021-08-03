@@ -3,6 +3,9 @@ package org.wangp.srb.service;
 import org.wangp.srb.pojo.Dict;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.io.InputStream;
+import java.util.List;
+
 /**
  * <p>
  * 数据字典 服务类
@@ -13,4 +16,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface DictService extends IService<Dict> {
 
+    List<Dict> getListById(Long id);
+
+    void handlerFileStream(InputStream inputStream);
 }

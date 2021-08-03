@@ -2,4 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.wangp.srb.mapper.DictMapper">
 
+    <!--需要拿到service穿过来的ExcelDictDTO对象，将他一个个的存入数据库用的是批处理方法所以需要解析存放对象集合
+    -->
+    <insert id="insertBatch"  useGeneratedKeys= "true"  parameterType="java.util.List">
+        <selectKey resultType ="java.lang.Integer" keyProperty= "id"
+                   order= "AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey >
+        insert into dict(id,parent_id,name,value,dict_code)
+        values
+        <foreach collection="list" item="dict" separator=",">
+            (#{dict.id},
+            #{dict.parentId},
+            #{dict.name},
+            #{dict.value},
+            #{dict.dictCode})
+        </foreach>
+    </insert>
+
+
 </mapper>
