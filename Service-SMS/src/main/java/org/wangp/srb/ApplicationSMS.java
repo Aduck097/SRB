@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @author PingW
  */
 @SpringBootApplication
-@ComponentScan({"org.wangp.srb","org.wangp.srb.sms"})
+@ComponentScan({"org.wangp.srb","org.wangp.common"})
 public class ApplicationSMS {
     public static void main(String[] args) {
         SpringApplication.run(ApplicationSMS.class,args);

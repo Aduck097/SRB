@@ -44,11 +44,13 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
     @Override
     public List<Dict> getListById(Long id) {
         List<Dict> dictList=null;
-        // 返回redis缓存里的值
-        log.info("从redis缓存里取出字典数据");
+        // redis 若有值则返回redis缓存里的值
         try {
             List dictListByRedis = (List<Dict>)redisTemplate.opsForValue().get("srb:core:dict" + id);
-            return dictListByRedis;
+            if(dictListByRedis!=null){
+                log.info("从redis缓存里取出字典数据");
+                return dictListByRedis;
+            }
         }catch (Exception e){
             log.error("redis缓存取值错误，异常是"+ExceptionUtils.getStackTrace(e));
         }

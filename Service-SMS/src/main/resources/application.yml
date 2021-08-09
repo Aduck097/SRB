@@ -9,7 +9,7 @@ spring:
 
   #spring:
   redis:
-    host: 192.168.221.100
+    host: 127.0.0.1
     port: 6379
     database: 0
     password:  #默认为空
@@ -21,11 +21,12 @@ spring:
         max-idle: 8     #最大空闲连接，默认8
         min-idle: 0     #最小空闲连接，默认0
 
+
 #阿里云短信
-#aliyun:
-#  sms:
-#    region-id: cn-hangzhou
-#    key-id: 你的keyid
-#    key-secret: 你的keysecret
-#    template-code: 你的短信模板code
-#    sign-name: 你的短信模板签名
+aliyun:
+  sms:
+    region-id: cn-hangzhou
+    key-id: LTAI5tEDLT5vu27M2cBr6U5Z
+    key-secret: BX5yarC86BzxGG4o0aPEtrVIV6ShNn
+    template-code: SMS_217425770
+    sign-name: "%E5%8C%97%E4%BA%AC%E8%AF%BE%E6%97%B6%E6%95%99%E8%82%B2"
