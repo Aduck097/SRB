@@ -1,11 +1,27 @@
 server:
   port: 8120 # 服务端口
 
+logging:
+  level:
+    org.wangp.srb.sms.client.CoreUserInfoClient: info
 spring:
   profiles:
     active: dev # 环境设置
   application:
     name: service-sms # 服务名
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+feign:
+  sentinel:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 10000 #连接超时配置
+        readTimeout: 600000 #执行超时配
 
   #spring:
   redis:

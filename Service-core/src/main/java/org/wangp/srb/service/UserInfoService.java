@@ -30,4 +30,6 @@ public interface UserInfoService extends IService<UserInfo> {
     void lockAndUnlock(Long id, Integer status);
 
     List<UserLoginRecord> selectRecords(Long userId);
+
+    boolean checkMobile(String mobile);
 }

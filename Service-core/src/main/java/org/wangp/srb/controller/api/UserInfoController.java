@@ -32,7 +32,6 @@ import java.security.AlgorithmConstraints;
  * @since 2021-07-29
  */
 @Api("用户注册")
-@CrossOrigin
 @RestController
 @RequestMapping("/userInfo/core")
 @Slf4j

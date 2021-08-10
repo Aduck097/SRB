@@ -8,6 +8,7 @@ import org.wangp.common.result.R;
 import org.wangp.common.result.ResponseEnum;
 import org.wangp.common.utils.RandomUtils;
 import org.wangp.common.utils.RegexValidateUtils;
+import org.wangp.srb.sms.client.CoreUserInfoClient;
 import org.wangp.srb.sms.controller.SmsController;
 import org.wangp.srb.sms.service.SmsService;
 import org.wangp.srb.sms.util.SmsProperties;
@@ -22,10 +23,11 @@ import java.util.Map;
  * @author PingW
  */
 @Api("阿里云短信服务")
-@CrossOrigin
 @RestController
 @RequestMapping("aliyun/sms")
 public class SmsControllerImpl implements SmsController {
+    @Resource
+    private CoreUserInfoClient coreUserInfoClient;
 
     @Resource
     private SmsService smsService;
@@ -36,6 +38,10 @@ public class SmsControllerImpl implements SmsController {
             @ApiParam(value = "用户的手机号",required = true)
             @PathVariable String mobile
     ){
+        boolean result = coreUserInfoClient.checkMobile(mobile);
+        System.out.println("result = " + result);
+        Assert.isTrue(result == false, ResponseEnum.MOBILE_EXIST_ERROR);
+
         Assert.notNull(mobile, ResponseEnum.MOBILE_NULL_ERROR);
         Assert.isTrue(RegexValidateUtils.checkCellphone(mobile),ResponseEnum.MOBILE_ERROR);
         // 短信模板读取

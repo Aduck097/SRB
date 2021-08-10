@@ -31,7 +31,6 @@ import java.util.stream.Collectors;
  * @since 2021-07-29
  */
 @Api("数据字典管理模块")
-@CrossOrigin
 @RestController
 @RequestMapping("/admin/core/dict")
 public class AdminDictController {

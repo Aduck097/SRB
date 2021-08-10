@@ -9,6 +9,7 @@
         <module>Service-core</module>
         <module>Service-SMS</module>
         <module>Service-OSS</module>
+        <module>service-gateway</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

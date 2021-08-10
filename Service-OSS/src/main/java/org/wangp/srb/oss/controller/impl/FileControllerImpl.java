@@ -21,7 +21,6 @@ import java.net.URLDecoder;
  * @author PingW
  */
 @Api("阿里云文件服务")
-@CrossOrigin
 @RestController
 @RequestMapping("/admin/oss/aliyun")
 public class FileControllerImpl{

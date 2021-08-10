@@ -161,5 +161,14 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         return userLoginRecordList;
     }
 
+    @Override
+    public boolean checkMobile(String mobile) {
+        QueryWrapper<UserInfo> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("mobile", mobile);
+        Integer count = userInfoMapper.selectCount(queryWrapper);
+        log.info("手机号注册结果"+ (count>0));
+        return count > 0;
+    }
+
 
 }

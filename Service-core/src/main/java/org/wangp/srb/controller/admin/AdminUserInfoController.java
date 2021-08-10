@@ -25,7 +25,6 @@ import java.util.List;
  * @author PingW
  */
 @Api("会员管理模块")
-@CrossOrigin
 @RestController
 @RequestMapping("/admin/core/userInfo/")
 @Slf4j
@@ -80,5 +79,11 @@ public class AdminUserInfoController {
         List<UserLoginRecord> userLoginRecordList = userInfoService.selectRecords(userId);
         log.info("查询日志成功");
         return R.ok().message("查询成功").data("list",userLoginRecordList);
+    }
+    @ApiOperation("校验手机号是否注册")
+    @GetMapping("/checkMobile/{mobile}")
+    public boolean checkMobile(@PathVariable String mobile){
+        log.info("开始校验手机号是否注册");
+        return userInfoService.checkMobile(mobile);
     }
 }
