@@ -9,7 +9,7 @@ spring:
 
 aliyun:
   oss:
-    endpoint: "oss-cn-shenzhen.aliyuncs.com"
-    KeyId: "LTAI5tJihxRWcj2ru8gMonWe"
-    KeySecret: "qTV3PtKcDir5BsxsVI85hTDCQTKy5O"
-    bucketName: "wangping-bucket-img"
+    endpoint: "endpoint"
+    KeyId: "KeyId"
+    KeySecret: "KeySecret"
+    bucketName: "bucketName"
